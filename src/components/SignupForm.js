@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { sendOtp } from "../services/operations/authAPI"
 import { setSignupData } from "../slices/authSlice"
+// import { FaArrowRight } from "react-icons/fa6";
 
 function SignUpForm() {
   const navigate = useNavigate();
@@ -176,6 +177,10 @@ function SignUpForm() {
           Create Account
         </button>
       </form>
+      {/* <div className="mt-5 flex gap-x-5 justify-end items-center">
+        <button className="text-[#4ee0f4] text-base italic">Employer Login</button>
+        <FaArrowRight className="text-[#4ee0f4]" />
+      </div> */}
     </div>
   )
 }

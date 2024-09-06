@@ -49,10 +49,15 @@ const Navbar = () => {
                             Contact
                         </p>
                     </NavLink>
+                    <NavLink to="/catalog">
+                        <p className={`${matchRoute("/catalog") ? "text-yellow-200" : "text-black"}`}>
+                            Catalog
+                        </p>
+                    </NavLink>
                 </div>
 
                 {/* Authentication buttons */}
-                <div className="flex gap-x-4 items-center">
+                <div className="flex gap-x-2 items-center">
                     {token === null && (
                         <>
                             <NavLink to="/login">
