@@ -54,6 +54,11 @@ const Navbar = () => {
                             Catalog
                         </p>
                     </NavLink>
+                    <NavLink to="/consult">
+                        <p className={`${matchRoute("/consult") ? "text-yellow-200" : "text-black"}`}>
+                            Consult
+                        </p>
+                    </NavLink>
                 </div>
 
                 {/* Authentication buttons */}
