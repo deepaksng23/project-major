@@ -17,13 +17,13 @@ exports.signup = async(req, res) => {
             lastName,
             email,
             password,
-            accountType,
             confirmPassword,
+            contactNumber,
             otp
         } = req.body;
 
         // Data Validation
-        if(!firstName || !lastName || !email || !password || !otp || !confirmPassword){
+        if(!firstName || !lastName || !email || !password || !otp || !confirmPassword || !contactNumber){
             return res.status(403).json({
                 success: false,
                 message: "Required data not present! Please fill all the details",
@@ -70,10 +70,6 @@ exports.signup = async(req, res) => {
         // Hash Password
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        // Create the user
-		let approved = "";
-		approved === "Doctor" ? (approved = false) : (approved = true);
-
         const ProfileDetails = await Profile.create({
             dateOfBirth: null,
             about:null,
@@ -87,8 +83,6 @@ exports.signup = async(req, res) => {
             email,
             contactNumber,
             password: hashedPassword,
-            accountType: accountType,
-            approved: approved,
             additionalDetails: ProfileDetails._id,
             image: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName} ${lastName}`,
         });

@@ -21,11 +21,6 @@ const userSchema = new mongoose.Schema({
         required: true,
         trim: true,
     },
-    accountType: {
-		type: String,
-		enum: ["Customer", "Doctor"],
-		required: true,
-    },
     additionalDetails:{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Profile",
