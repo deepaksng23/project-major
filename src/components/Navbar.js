@@ -5,6 +5,7 @@ import logo from "../assets/logo.jpeg";
 import { AiFillMedicineBox } from "react-icons/ai";
 import { logout } from "../services/operations/authAPI";
 import { CgProfile } from "react-icons/cg";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Navbar = () => {
     const dispatch = useDispatch();
@@ -79,7 +80,12 @@ const Navbar = () => {
                     )}
 
                     {token !== null && (
-                        <>
+                        <>  
+                            <NavLink to="/cart">
+                                <div>
+                                    <FaShoppingCart className="text-[#333333] hover:text-[#8bc34a] text-xl transition ease-in duration-100"/>
+                                </div>
+                            </NavLink>
                             <NavLink to="/dashboard">
                                 <CgProfile className={`${matchRoute("/dashboard") ? "text-yellow-25" : "text-richblack-25"} text-richblack-25 h-6 w-6`} />
                             </NavLink>
