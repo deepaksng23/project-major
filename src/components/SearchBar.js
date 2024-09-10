@@ -8,7 +8,7 @@ const SearchBar = ({ query, setQuery }) => {
         <FaSearch className='absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500' />
         <input
           type="text"
-          placeholder="Search for medicines..."
+          placeholder="Search for medicines or category..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className="pl-10 border border-gray-300 p-2 rounded-lg w-full"

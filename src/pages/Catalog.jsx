@@ -7,7 +7,7 @@ const Catalog = () => {
   const [query, setQuery] = useState('');
 
   const filteredMedicines = data.filter((medicine) =>
-    medicine.name.toLowerCase().includes(query.toLowerCase()) // || medicine.info.toLowerCase().includes(query.toLowerCase())
+    medicine.name.toLowerCase().includes(query.toLowerCase()) || medicine.info.toLowerCase().includes(query.toLowerCase())
   );
 
   return (
