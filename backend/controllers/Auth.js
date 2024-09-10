@@ -9,9 +9,6 @@ require("dotenv").config();
 
 exports.signup = async(req, res) => {
     try {
-        // Data Fetch
-        console.log("Data from user : ", req.body);
-
         const {
             firstName,
             lastName,
@@ -21,6 +18,8 @@ exports.signup = async(req, res) => {
             contactNumber,
             otp
         } = req.body;
+
+        console.log(firstName);
 
         // Data Validation
         if(!firstName || !lastName || !email || !password || !otp || !confirmPassword || !contactNumber){
@@ -52,8 +51,7 @@ exports.signup = async(req, res) => {
         console.log("OTP Response", response);
 
         // Validate the OTP
-        if(response.length === 0) {
-			// OTP not found for the email
+        if (response.length === 0) {
 			return res.status(400).json({
 				success: false,
 				message: "The OTP is not valid",
@@ -116,8 +114,7 @@ exports.login = async(req, res) => {
         }
 
         // check if user is registered
-        const user = await User.findOne({ email }).populate("additionalDetails");
-
+        const user = await User.findOne({email});
         if(!user){
             return res.status(401).json({
                 success: false,
@@ -131,7 +128,6 @@ exports.login = async(req, res) => {
                 {
                     email: user.email,
                     id: user._id,
-                    accountType: user.accountType
                 },
 				    process.env.JWT_SECRET,
 				{
@@ -143,7 +139,7 @@ exports.login = async(req, res) => {
             user.password = undefined;
 
             const options = {
-                expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
+                expires: new Date(Date.now() + 20*60*1000),
                 httpOnly: true,
             };
 

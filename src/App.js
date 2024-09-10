@@ -6,6 +6,7 @@ import SignUp from './pages/SignUp';
 import Catalog from './pages/Catalog';
 import VerifyEmail from './pages/VerifyEmail';
 import Cart from './pages/Cart';
+import Dashboard from "./pages/Dashboard";
 import OpenRoute from './components/OpenRoute';
 
 import { Route, Routes } from 'react-router-dom';
@@ -21,6 +22,7 @@ function App() {
         <Route path="catalog" element={<Catalog/>}/>
         <Route path="verify-email" element={<OpenRoute><VerifyEmail/></OpenRoute>}/>
         <Route path="/cart" element={<Cart/>}></Route>
+        <Route path="dashboard" element={<Dashboard/>} />
       </Routes>
     </div>
   );
