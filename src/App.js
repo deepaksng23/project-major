@@ -4,6 +4,10 @@ import Home from './pages/Home';
 import Login from "./pages/Login";
 import SignUp from './pages/SignUp';
 import Catalog from './pages/Catalog';
+import VerifyEmail from './pages/VerifyEmail';
+import Cart from './pages/Cart';
+import OpenRoute from './components/OpenRoute';
+
 import { Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -15,6 +19,8 @@ function App() {
         <Route path="login" element={<Login/>}/>
         <Route path="signup" element={<SignUp/>}/>
         <Route path="catalog" element={<Catalog/>}/>
+        <Route path="verify-email" element={<OpenRoute><VerifyEmail/></OpenRoute>}/>
+        <Route path="/cart" element={<Cart/>}></Route>
       </Routes>
     </div>
   );

@@ -43,7 +43,6 @@ function SignUpForm() {
     const signupData = {
       ...formData,
     }
-
     dispatch(setSignupData(signupData))
     dispatch(sendOtp(formData.email, navigate))
 
