@@ -15,14 +15,13 @@ exports.signup = async(req, res) => {
             email,
             password,
             confirmPassword,
-            contactNumber,
             otp
         } = req.body;
 
         console.log(firstName);
 
         // Data Validation
-        if(!firstName || !lastName || !email || !password || !otp || !confirmPassword || !contactNumber){
+        if(!firstName || !lastName || !email || !password || !otp || !confirmPassword){
             return res.status(403).json({
                 success: false,
                 message: "Required data not present! Please fill all the details",
@@ -79,7 +78,6 @@ exports.signup = async(req, res) => {
             firstName,
             lastName,
             email,
-            contactNumber,
             password: hashedPassword,
             additionalDetails: ProfileDetails._id,
             image: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName} ${lastName}`,

@@ -1,20 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const updateItem = (cart, item) => {
-    const existingItem = cart[item.id];
-    if (existingItem) {
-        // Update quantity if item already exists
-        cart[item.id].quantity += item.quantity;
+const updateItem = (cartItems, item) => {
+    if (cartItems[item.id]) {
+        cartItems[item.id].quantity += item.quantity;
     } else {
-        // Add new item to the cart
-        cart[item.id] = item;
+        cartItems[item.id] = item;
     }
 };
 
 export const CartSlice = createSlice({
     name: "cart",
     initialState: {
-        usersCarts: {}, // { userId: { items: {} } }
+        usersCarts: {}, 
     },
     reducers: {
         add: (state, action) => {

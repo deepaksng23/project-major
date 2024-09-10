@@ -1,6 +1,6 @@
 import { toast } from "react-hot-toast"
 import { setLoading, setToken } from "../../slices/authSlice"
-// import { setUser } from "../../slices/profileSlice"
+import { setUser } from "../../slices/profileSlice"
 import { apiConnector } from "../apiConnector"
 import { endpoints } from "../apis"
 
@@ -23,11 +23,11 @@ export function login(email, password, navigate) {
             toast.success("Login Successful");
             dispatch(setToken(response.data.token));
 
-            // const userImage = response.data?.user?.image
-            //     ? response.data.user.image
-            //     : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.user.firstName} ${response.data.user.lastName}`
+            const userImage = response.data?.user?.image
+                ? response.data.user.image
+                : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.user.firstName} ${response.data.user.lastName}`
 
-            // dispatch(setUser({ ...response.data.user, image: userImage }))
+            dispatch(setUser({ ...response.data.user, image: userImage }))
             localStorage.setItem("token", JSON.stringify(response.data.token))
             navigate("/dashboard")
         } catch (error) {
@@ -102,7 +102,7 @@ export function signUp( firstName, lastName, email, password, confirmPassword, o
 export function logout(navigate) {
   return (dispatch) => {
     dispatch(setToken(null))
-    // dispatch(setUser(null))
+    dispatch(setUser(null))
     localStorage.removeItem("token")
     localStorage.removeItem("user")
     toast.success("Logged Out")

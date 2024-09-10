@@ -35,6 +35,7 @@ const Card = ({ id, name, info, image, price, userId }) => {
   };
 
   const addToCartHandler = () => {
+    console.log('Adding item to cart', { userId, item: { id, name, price, quantity } });
     dispatch(add({ userId, item: { id, name, price, quantity } }));
     setIsAdded(true);
   };

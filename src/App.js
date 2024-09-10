@@ -21,7 +21,7 @@ function App() {
         <Route path="signup" element={<SignUp/>}/>
         <Route path="catalog" element={<Catalog/>}/>
         <Route path="verify-email" element={<OpenRoute><VerifyEmail/></OpenRoute>}/>
-        <Route path="/cart" element={<Cart/>}></Route>
+        <Route path="cart" element={<Cart/>}></Route>
         <Route path="dashboard" element={<Dashboard/>} />
       </Routes>
     </div>

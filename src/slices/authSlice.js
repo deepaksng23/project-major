@@ -4,24 +4,27 @@ const initialState = {
   signupData: null,
   loading: false,
   token: localStorage.getItem("token") ? JSON.parse(localStorage.getItem("token")) : null,
+  userId: null,
 };
 
 const authSlice = createSlice({
   name: "auth",
   initialState: initialState,
   reducers: {
-    setSignupData(state, value) {
-      state.signupData = value.payload;
+    setSignupData(state, action) {
+      state.signupData = action.payload;
     },
-    setLoading(state, value) {
-      state.loading = value.payload;
+    setLoading(state, action) {
+      state.loading = action.payload;
     },
-    setToken(state, value) {
-      state.token = value.payload;
+    setToken(state, action) {
+      state.token = action.payload;
+    },
+    setUserId(state, action) { 
+      state.userId = action.payload;
     },
   },
 });
 
-export const { setSignupData, setLoading, setToken } = authSlice.actions;
-
+export const { setSignupData, setLoading, setToken, setUserId } = authSlice.actions;
 export default authSlice.reducer;
